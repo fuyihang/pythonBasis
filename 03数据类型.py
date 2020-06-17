@@ -141,41 +141,6 @@ complex(math.pi, math.e)
 # random        #随机数
 # statistics    #统计
 
-#4.常用数学函数math
-# abs
-# ceil
-# sqrt
-# exp
-# fabs
-# floor
-# log
-# log10
-# max
-# min
-# modf
-# pow
-# round
-
-#5.随机数函数random
-# choice(seq)                       #从序列中随机挑选一个元素
-# randrange([start,]stop[,step])    #从指定范围的集合中随机选取一个值
-# random()                          #随机生成一个[0,1)范围内的实数
-# seed([x])                         #改变随机数生成器的种子
-# shuffle(lst)                      #
-# uniform(x,y)
-
-#6.三角函数math
-# sin(x)    #正弦
-# cos(x)    #余弦
-# tan(x)    #正切
-# asin(x)   #反正弦
-# acos(x)
-# atan(x)
-# atan2(y,x)    #返回给定的X及Y坐标值的反正切值
-# hypot(x,y)    #返回欧几里德范数sqrt(x*x + y*y)
-# degrees(x)    #将弧度转换为角度,如degrees(math.pi/2)=90.0
-# radians(x)    #将角度转换为弧度
-
 
 ######################################################################
 ##======字符串=======================================
@@ -242,45 +207,45 @@ c = str[1]  #u
 
 
 ##4.字符串切片
-str='Runoob'
+s='Runoob'
 
-print(str[0:-1])           # 输出第一个到倒数第二个的所有字符
-print(str[0])              # 输出字符串第一个字符
-print(str[2:5])            # 输出从第三个开始到第五个的字符
-print(str[2:])             # 输出从第三个开始的后的所有字符
+print(s[0:-1])           # 输出第一个到倒数第二个的所有字符
+print(s[0])              # 输出字符串第一个字符
+print(s[2:5])            # 输出从第三个开始到第五个的字符
+print(s[2:])             # 输出从第三个开始的后的所有字符
 
 ##5.字符串操作函数
 ##注：字符串是不可变序列，只能返回值，不能修改原有字符串
-str = ' hello World! '
-print('字符串的长度 =\t',len(str))
+s = ' hello World! '
+print('字符串的长度 =\t',len(s))
 
 ##字符串修整
-str2 = str.title()  #首字母大写
-str2 = str.upper()  #全部字母大写
-str2 = str.lower()  #全部字母小写
+str2 = s.title()  #首字母大写
+str2 = s.upper()  #全部字母大写
+str2 = s.lower()  #全部字母小写
 
-str2 = str.lstrip() #去除左边空格
-str2 = str.rstrip() #去除右边空格
-str2 = str.strip()  #去除首尾空格
+str2 = s.lstrip() #去除左边空格
+str2 = s.rstrip() #去除右边空格
+str2 = s.strip()  #去除首尾空格
 print(str2)
 
 ##字符串查找、替换
-str = 'hello World'
+s = 'hello World'
 #count(sub[,start[,end]]) 计算子串sub出现的次数
-print(str.count('Wo') ) #返回1
+print(s.count('Wo') ) #返回1
 #find(sub[,start[,end]]) 查找子串最早出现的位置,位置从0开始
 #rfind(sub[,start[,end]]) 查找子串最后一次出现的位置
-print(str.find('Wo'))   #返回6
+print(s.find('Wo'))   #返回6
 #index(sub[,start[,end]]) #和find一样，但找不到子串时会抛出错误，类似还有函数rindex
-print(str.replace('o','dd')) #替换所有子串，返回helldd Wddrld
+print(s.replace('o','dd')) #替换所有子串，返回helldd Wddrld
 
 ##字符串分割
 #split(sep=None,maxsplit=-1)以分隔符分隔字符串成列表，sep为分隔字符，maxsplit表示最大分隔次数
-print(str.split())  #默认以空格分隔字符串，返回列表元素['hello', 'World']
-print(str.split('l'))   #以字符l分隔，返回4个列表元素['he', '', 'o Wor', 'd']
-print(str.split('ll'))  #以字符ll分隔，['he', 'o World']
-print(str.split('l', 2)) #仅分隔前两次，返回3个列表元素['he', '', 'o World']
-#str.splitlines()返回行列表
+print(s.split())  #默认以空格分隔字符串，返回列表元素['hello', 'World']
+print(s.split('l'))   #以字符l分隔，返回4个列表元素['he', '', 'o Wor', 'd']
+print(s.split('ll'))  #以字符ll分隔，['he', 'o World']
+print(s.split('l', 2)) #仅分隔前两次，返回3个列表元素['he', '', 'o World']
+#s.splitlines()返回行列表
 
 ##字符串判断
 # isalnum()
@@ -505,6 +470,7 @@ print(tp)           #('ab', 12, [4, 2, 3])
 # 2.列表的元素是通过索引位置访问，而字典中元素是通过键来访问。
 # 3.列表的索引必须是数字，而字典的索引（即键）可以是字符串，更易读。
 # 4.列表的索引是隐式，而字典显式地保留了键值对（key-Value）。
+# 5.列表支持切片访问，但字典不支持切片访问（切片的本质是位置）
 
 ##字典定义
 # 1.字典用{}标识，用逗号分隔元素，用:分隔键值（键:值）。
@@ -778,4 +744,3 @@ dt2 = datetime(2019,1,2, 1,2,3,4)
 dlt2 = dt2-dt1                  #应该是相差1天1个小时2分钟3秒4微秒,即除去整天数，还相差3600+120+3=3723秒
 print(dlt2)                     #输出结果是datetime.timedelta(days=1, seconds=3723, microseconds=4)
 print(dlt2.total_seconds())     #总秒数，1天=86400秒，共86400+3723=90123.000004秒
-
