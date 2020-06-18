@@ -11,6 +11,9 @@
 #   1）遍历循环for-in-else
 #   2）条件循环while-else
 # 5、异常语句try-exception-finally
+
+# 请参考官方中文文档
+# https://docs.python.org/zh-cn/3.8/tutorial/index.html
 ######################################################################
 
 ##======关于变量======

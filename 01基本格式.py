@@ -10,10 +10,11 @@
 ##======官方参考文档=========
 ##
 
-#一）官方参考文档（英文）：
+#一）官方参考文档（中文）：
+# https://docs.python.org/zh-cn
+
+#二）官方参考文档（英文）：
 # https://docs.python.org/3/index.html
-#二）官方参考文档（中文）：
-# https://docs.python.org/zh-cn/3.7/index.html
 
 #其它中文参考文档：
 #三）Python中文开发者社区（中文）

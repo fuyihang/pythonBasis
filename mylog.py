@@ -15,12 +15,11 @@ class MyLogLevel(Enum):
     WARNING = 2         #警告，蓝色
     ERROR = 3           #错误，红色
 
-class log():
-    logFileName = ''
-    Lev = 2
-    f = None
+class MyLog():
     def __init__(self):
-        pass
+        self.logFileName = ''
+        self.Lev = 0
+        self.f = None
 
     def __del__(self):
         if self.f != None:
@@ -28,14 +27,14 @@ class log():
 
     #产生日志文件的全路径
     def _generateFileName(self):
-        logDir = 'Log'                  #固定日志目录 
+        logDir = 'log'                  #固定日志目录 
         currentDir = os.getcwd()
         if not os.path.exists(logDir):
             os.mkdir(logDir)
         currentDir = os.path.join(currentDir, logDir)
 
         dt = datetime.now()
-        fileName = dt.strftime("log%Y%m%d%H.txt") ##日志名称形如 log年月日时.txt
+        fileName = dt.strftime("log%Y%m%d.txt") ##日志名称形如 log年月日时.txt
 
         self.logFileName = os.path.join(currentDir, fileName)
 
@@ -71,7 +70,7 @@ class log():
             self.f.write(prefix)                        #日志自动加上时间，级别
             self.f.write(strlog)
             self.f.write('\n')                          #自动加上换行符
-        
+
         #在界面上输出，可根据级别输出不同的颜色
         nColor = 30         #默认，黑色
         if nLevel == MyLogLevel.TIP:
@@ -90,7 +89,7 @@ class log():
             print('\033[{}m{}\033[0m'.format(nColor, strlog))
 
 if __name__ == '__main__':
-    lg =log()
+    lg =MyLog()
     lg.writeLog('提示：程序正常记录！',MyLogLevel.TIP)
     lg.writeLog('警告：程序出现异常！', MyLogLevel.WARNING)
     lg.writeLog('错误：程序运行错误！', MyLogLevel.ERROR)

@@ -62,6 +62,7 @@ print(currDir)      #禁止使用dir作变量，因为dir是内置标识符
 # 5、条件语句
 
 newpath = '/Users/fusx/OneDrive/Python/dataset/'
+# newpath = 'D:\\python\dataset'
 if os.path.exists(newpath):
     print("路径存在")
 
@@ -90,12 +91,13 @@ filename = '../dataset/用户明细.csv'    # 表示上一级目录下的dataset
 ret = os.path.exists(filename)  # 检查路径(文件或目录)是否存在
 
 #windows下路径表示，三种都可以通过
-# path = r'C:\Users\OneDrive\Python\数据分析'       #注意前面有r字符
-# path = 'C:\\Users\\OneDrive\\Python\\数据分析'    #或者用双反斜杠
-# path = 'C:/Users/OneDrive/Python/数据分析'        #或者用斜杠即可
+path = r'C:\Users\fusx\OneDrive\Python\数据分析'       #注意前面有r字符
+path = 'C:\\Users\\fusx\\OneDrive\\Python\\数据分析'    #或者用双反斜杠
+path = 'C:/Users/fusx/OneDrive/Python/数据分析'        #或者用斜杠即可
 
 # 更改工作路径
-newpath = '/Users/fusx/OneDrive/Python/dataset/'
+# newpath = '/Users/fusx/OneDrive/Python/dataset/'
+path = 'C:/Users/fusx/OneDrive/Python/dataset'
 os.chdir(newpath)
 
 # 改变工作路径后，使用相对路径更简洁
