@@ -20,7 +20,6 @@
 ###########################################################
 
 # 1、导入语句
-import this     #打印Python之禅
 
 import os       #导入一个标准module
 
@@ -54,7 +53,6 @@ print('磁盘使用率:\n', psutil.disk_usage('/'))
 filename = input('请输入你的名字：')
 print('你输入的名字是：', filename)
 
-
 # 4、赋值语句
 currDir = os.getcwd()   #默认是在代码所在的目录
 print(currDir)      #禁止使用dir作变量，因为dir是内置标识符
@@ -65,7 +63,6 @@ newpath = '/Users/fusx/OneDrive/Python/dataset/'
 # newpath = 'D:\\python\dataset'
 if os.path.exists(newpath):
     print("路径存在")
-
 
 age = input('请输入你的年龄:')
 if age.isdigit():
