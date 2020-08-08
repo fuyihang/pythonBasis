@@ -23,7 +23,7 @@ def searchFile(rootPath, sFileName):
     searchingFileName = sFileName.lower()
     for name in names:
         file = os.path.join(rootPath, name)
-        tmpName = name.lower()
+        tmpName = file.lower()
         if tmpName.find(searchingFileName) != -1:
             return True     #找到一个即中止搜索
 
@@ -47,3 +47,22 @@ for path, file, retVal in lt_tests:
     print('执行案例:',path, file)
     ret = searchFile(path, file)
     assert(ret==retVal)
+
+# 字符串数据类型
+name = 'Python'
+
+print(name[3])
+print(name[-1])
+
+# 切片
+print(name[0:3])
+print(name[:])
+
+lt = [2, 'OK', 'hello', 5, 7]
+
+print(lt[1])
+for val in lt:
+    print(val)
+
+# 切片
+print(lt[2:])

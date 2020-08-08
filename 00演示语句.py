@@ -33,6 +33,7 @@ print(os.sys.platform)
 print(os.sys.version)
 print(os.sys.version_info)
 
+
 import psutil
 # CPU信息
 print('CPU逻辑个数：', psutil.cpu_count())
