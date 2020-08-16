@@ -35,7 +35,7 @@ with open(filename, 'w', newline='') as f:
     #delimiter分隔符指定为CSV（逗号），或者TSV（\t）等等。
     #lineterminator行分隔符默认为\r\n，所以会导致写入的行与行之间存在空行，所以需要指定为\n即可
     writer = csv.writer(f, delimiter=',',lineterminator='\n')
-    writer.writerow(['No', 'firstname', 'lastname'])
+    writer.writerow(['ID', 'firstname', 'lastname'])
     writer.writerow([1, 'John', 'Alex'])
     writer.writerow([2, 'Mike', 'Michal'])
 
@@ -55,7 +55,7 @@ with open(filename, 'r', newline='') as f:
     for row in reader:
         print(row)
         # print(row[0], row[1])
-    print('行数={}',reader.line_num)    #返回实际读取的行数
+    print('行数=',reader.line_num)    #返回实际读取的行数
 
 
 ##元组方式写入
@@ -117,44 +117,3 @@ with open(filename, 'r', newline='') as f:
     reader = csv.DictReader(f, fieldnames = fields)
     for row in reader:
         print(row['firstName'], row['lastName'])
-
-
-###########################使用pandas操作###########################################
-
-#方式三：用pandas来读取CSV文件
-#http://pandas.pydata.org/pandas-docs/stable/io.html#io-read-csv-table
-
-
-
-###############################################################
-#实战案例，读取文件（格式：['Date','Sales']），按月份汇总销量
-import csv
-from datetime import datetime
-
-filename = "..\DataSet\sales.csv"
-with open(filename) as f:
-    reader = csv.DictReader(f)  #reader对象
-    print(reader.fieldnames)   #查看标题名称['Date','Sales']
-
-    months =  [1,2,3,4,5,6,7,8,9,10,11,12]
-    highs = [0]*(len(months)+1)  #13个初始值
-    for row in reader:
-        #row[0]表示第1列：日期
-        dt = datetime.strptime(row['Date'],'%Y/%m/%d')
-        month = dt.month   #获取月份
-        if row['Sales']:         #如果有销量，则汇总
-            highs[month] += float(row['Sales'])
-    
-    for month in months:
-        msg = ('month {0:d}'+ "={1:.2f}").format(month, highs[month])
-        print(msg)
-
-#写入CSV文件
-filename = "sumsales.csv"
-with open(filename, "w") as f:
-    fieldnames = ['Month', 'Sum']
-    writer = csv.DictWriter(f, fieldnames, lineterminator='\n')  
-    
-    writer.writeheader()    #先写标题
-    for month in months:
-        writer.writerow({'Month':month, 'Sum':highs[month]})

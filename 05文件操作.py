@@ -15,38 +15,42 @@
 
 ##文件打开===============
 # 
-#open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
-# file      指的是文件路径及文件名
-# mode      文件打开的模式
-# buffering 缓存大小字节数。特别的，0表示关闭缓存(二进制模式有效),1表示行缓存(文本模式有效)
-# encoding  (文本模式有效)默认编码是UTF-8
-# errors    (文本模式有效)编码错误时处理(默认是ValueError)
-# newline   (文本模式有效)换行符，可以是None,'', '\n', '\r'和'\r\n'或者其它任何字符串
-#           默认为None，表示\r,\n,\r\n都支持，并且会统一转换为\n再返回给调用者；
-#           如果为''，则不会统一转换换行符。
-# closefd   True时，表示file是一个文件名，False时表示file是文件描述符fd。
-# opener    
-# 返回文件对象，有可能是TextIOWrapper, BufferedReader, BufferedWriter, BufferedRandom或RawIOBase,FileIO等。
+#open(file, mode='r', buffering=-1, encoding=None, errors=None, 
+    # newline=None, closefd=True, opener=None)
+    # file      指的是文件路径及文件名
+    # mode      文件打开的模式
+    # buffering 缓存大小字节数。特别的，0表示关闭缓存(二进制模式有效),1表示行缓存(文本模式有效)
+    # encoding  (文本模式有效)默认编码是UTF-8
+    # errors    (文本模式有效)编码错误时处理(默认是ValueError)
+    # newline   (文本模式有效)换行符，可以是None,'', '\n', '\r'和'\r\n'或者其它任何字符串
+    #           默认为None，表示\r,\n,\r\n都支持，并且会统一转换为\n再返回给调用者；
+    #           如果为''，则不会统一转换换行符。
+    # closefd   True时，表示file是一个文件名，False时表示file是文件描述符fd。
+    # opener
+# 返回文件对象,有可能是
+    # TextIOWrapper, 
+    # BufferedReader, BufferedWriter, BufferedRandom
+    # 或RawIOBase,FileIO等。
 
 #mode参数有：
-#t text mode (default)文本模式（默认），文件读取返回的都是str对象
-#b binary mode二进制模式，文件读取返回的都是bytes对象
+    #t text mode (default)文本模式（默认），文件读取返回的都是str对象
+    #b binary mode二进制模式，文件读取返回的都是bytes对象
 
-#r 只读，指针在文件开头，默认；如果文件不存在，则会报错！
-#w 写文件，清空文件原有内容；如果文件不存在，则会创建文件
-#+ 打开一个磁盘文件进行更新（可读写）
-#x 创建文件，如果文件存在则会报错；
-#a 追加文件，指针在文件末尾
+    #r 只读，指针在文件开头，默认；如果文件不存在，则会报错！
+    #w 写文件，清空文件原有内容；如果文件不存在，则会创建文件
+    #+ 打开一个磁盘文件进行更新（可读写）
+    #x 创建文件，如果文件存在则会报错；
+    #a 追加文件，指针在文件末尾
 
-#rt读文本文件；w+b读写二进制文件，并清空原内容；r+b读写二进制文件，但不清空原内容
+    #rt读文本文件；w+b读写二进制文件，并清空原内容；r+b读写二进制文件，但不清空原内容
 
 #1.打开文本文件读Text I/O。参考TextIOBase
 filename = "mytxt.txt"
-# f = open(filename, 'r', encoding='utf-8')
+f1 = open(filename, 'r', encoding='utf-8')
 
 #2.打开二进制文件读Binary I/O或bufferd I/O
 filename = "myfile.jpg"
-# f = open(filename, 'rb')    #文件不存在会抛出异常
+f2 = open(filename, 'rb')    #文件不存在会抛出异常
 
 
 ##文件写入===============
